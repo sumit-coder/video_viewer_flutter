@@ -20,6 +20,8 @@ class VideoCoreOverlay extends StatelessWidget {
     final header = style.header;
     final bool overlayVisible = controller.isShowingOverlay;
 
+    final customBottomControlls = style.customBottomControlls;
+
     return CustomOpacityTransition(
       visible: !controller.isShowingThumbnail,
       child: Stack(children: [
@@ -40,7 +42,7 @@ class VideoCoreOverlay extends StatelessWidget {
           child: CustomSwipeTransition(
             visible: overlayVisible,
             axisAlignment: -1.0,
-            child: const OverlayBottom(),
+            child: customBottomControlls ?? const OverlayBottom(),
           ),
         ),
         AnimatedBuilder(
@@ -52,10 +54,10 @@ class VideoCoreOverlay extends StatelessWidget {
             ),
           ),
         ),
-        CustomOpacityTransition(
-          visible: controller.isShowingSettingsMenu,
-          child: const SettingsMenu(),
-        ),
+        // CustomOpacityTransition(
+        //   visible: controller.isShowingSettingsMenu,
+        //   child: const SettingsMenu(),
+        // ),
       ]),
     );
   }

@@ -33,6 +33,7 @@ class VideoViewerStyle {
     TextStyle? textStyle,
     this.thumbnail,
     this.header,
+    this.customBottomControlls,
     this.transitions = const Duration(milliseconds: 400),
     this.skipAdBuilder,
     this.skipAdAlignment = Alignment.bottomRight,
@@ -55,12 +56,10 @@ class VideoViewerStyle {
         settingsStyle = settingsStyle ?? SettingsMenuStyle(),
         progressBarStyle = progressBarStyle ?? ProgressBarStyle(),
         volumeBarStyle = volumeBarStyle ?? VolumeBarStyle(),
-        forwardAndRewindStyle =
-            forwardAndRewindStyle ?? ForwardAndRewindStyle(),
+        forwardAndRewindStyle = forwardAndRewindStyle ?? ForwardAndRewindStyle(),
         playAndPauseStyle = playAndPauseStyle ?? PlayAndPauseWidgetStyle(),
-        textStyle = textStyle ??
-            TextStyle(
-                color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold);
+        textStyle =
+            textStyle ?? TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold);
 
   /// These are the styles of the settings sales, here you will change the icons and
   /// the language of the texts
@@ -90,6 +89,9 @@ class VideoViewerStyle {
 
   /// It is the widget header shows on the top when you tap the video viewer and it shows the progress bar
   final Widget? header;
+
+  /// It is the widget for using  custom Bottom Controlls
+  final Widget? customBottomControlls;
 
   /// It is the NotNull-Widget that appears when the video is loading.
   ///
@@ -137,6 +139,7 @@ class VideoViewerStyle {
     PlayAndPauseWidgetStyle? playAndPauseStyle,
     Widget? thumbnail,
     Widget? header,
+    Widget? customBottomControlls,
     Widget? loading,
     Widget? buffering,
     Duration? transitions,
@@ -150,11 +153,11 @@ class VideoViewerStyle {
       volumeBarStyle: volumeBarStyle ?? this.volumeBarStyle,
       progressBarStyle: progressBarStyle ?? this.progressBarStyle,
       subtitleStyle: subtitleStyle ?? this.subtitleStyle,
-      forwardAndRewindStyle:
-          forwardAndRewindStyle ?? this.forwardAndRewindStyle,
+      forwardAndRewindStyle: forwardAndRewindStyle ?? this.forwardAndRewindStyle,
       playAndPauseStyle: playAndPauseStyle ?? this.playAndPauseStyle,
       thumbnail: thumbnail ?? this.thumbnail,
       header: header ?? this.header,
+      customBottomControlls: customBottomControlls ?? this.customBottomControlls,
       loading: loading ?? this.loading,
       buffering: buffering ?? this.buffering,
       transitions: transitions ?? this.transitions,
@@ -178,6 +181,7 @@ class VideoViewerStyle {
         other.playAndPauseStyle == playAndPauseStyle &&
         other.thumbnail == thumbnail &&
         other.header == header &&
+        other.customBottomControlls == customBottomControlls &&
         other.loading == loading &&
         other.buffering == buffering &&
         other.transitions == transitions &&
@@ -197,6 +201,7 @@ class VideoViewerStyle {
         playAndPauseStyle.hashCode ^
         thumbnail.hashCode ^
         header.hashCode ^
+        customBottomControlls.hashCode ^
         loading.hashCode ^
         buffering.hashCode ^
         transitions.hashCode ^

@@ -340,10 +340,10 @@ class _VideoViewerCoreState extends State<VideoViewerCore> {
       //   rewindSeconds: _defaultRewindAmount * _rewindDoubleTapCount,
       //   forwardSeconds: _defaultForwardAmount * _forwardDoubleTapCount,
       // ),
-      VideoCoreForwardAndRewindLayout(
-        rewind: GestureDetector(onDoubleTap: _rewind),
-        forward: GestureDetector(onDoubleTap: _forward),
-      ),
+      // VideoCoreForwardAndRewindLayout(
+      //   rewind: GestureDetector(onDoubleTap: _rewind),
+      //   forward: GestureDetector(onDoubleTap: _forward),
+      // ),
       // Builder(builder: (_) {
       //   final controller = _query.video(context, listen: true);
       //   final metadata = _query.videoMetadata(context);
