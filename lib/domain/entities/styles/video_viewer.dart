@@ -34,6 +34,7 @@ class VideoViewerStyle {
     this.thumbnail,
     this.header,
     this.customBottomControlls,
+    this.customCenterControlls,
     this.transitions = const Duration(milliseconds: 400),
     this.skipAdBuilder,
     this.skipAdAlignment = Alignment.bottomRight,
@@ -93,6 +94,9 @@ class VideoViewerStyle {
   /// It is the widget for using  custom Bottom Controlls
   final Widget? customBottomControlls;
 
+  /// It is the widget for using  custom Center Controlls
+  final Widget? customCenterControlls;
+
   /// It is the NotNull-Widget that appears when the video is loading.
   ///
   ///DEFAULT:
@@ -140,6 +144,7 @@ class VideoViewerStyle {
     Widget? thumbnail,
     Widget? header,
     Widget? customBottomControlls,
+    Widget? customCenterControlls,
     Widget? loading,
     Widget? buffering,
     Duration? transitions,
@@ -158,6 +163,7 @@ class VideoViewerStyle {
       thumbnail: thumbnail ?? this.thumbnail,
       header: header ?? this.header,
       customBottomControlls: customBottomControlls ?? this.customBottomControlls,
+      customCenterControlls: customCenterControlls ?? this.customCenterControlls,
       loading: loading ?? this.loading,
       buffering: buffering ?? this.buffering,
       transitions: transitions ?? this.transitions,
@@ -182,6 +188,7 @@ class VideoViewerStyle {
         other.thumbnail == thumbnail &&
         other.header == header &&
         other.customBottomControlls == customBottomControlls &&
+        other.customCenterControlls == customCenterControlls &&
         other.loading == loading &&
         other.buffering == buffering &&
         other.transitions == transitions &&
@@ -202,6 +209,7 @@ class VideoViewerStyle {
         thumbnail.hashCode ^
         header.hashCode ^
         customBottomControlls.hashCode ^
+        customCenterControlls.hashCode ^
         loading.hashCode ^
         buffering.hashCode ^
         transitions.hashCode ^

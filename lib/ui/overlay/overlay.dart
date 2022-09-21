@@ -21,6 +21,7 @@ class VideoCoreOverlay extends StatelessWidget {
     final bool overlayVisible = controller.isShowingOverlay;
 
     final customBottomControlls = style.customBottomControlls;
+    final customCenterControlls = style.customCenterControlls;
 
     return CustomOpacityTransition(
       visible: !controller.isShowingThumbnail,
@@ -49,8 +50,8 @@ class VideoCoreOverlay extends StatelessWidget {
           animation: controller,
           builder: (_, __) => CustomOpacityTransition(
             visible: overlayVisible,
-            child: const Center(
-              child: PlayAndPause(type: PlayAndPauseType.center),
+            child: Center(
+              child: customCenterControlls ?? PlayAndPause(type: PlayAndPauseType.center),
             ),
           ),
         ),
