@@ -12,7 +12,7 @@ import 'package:video_viewer/data/repositories/video.dart';
 import 'package:video_viewer/domain/entities/subtitle.dart';
 import 'package:video_viewer/domain/entities/video_source.dart';
 
-const int _kMillisecondsToHideTheOverlay = 2800;
+const int _kMillisecondsToHideTheOverlay = 4500;
 
 class VideoViewerController extends ChangeNotifier with WidgetsBindingObserver {
   /// Controls a platform video viewer, and provides updates when the state is
@@ -404,8 +404,8 @@ class VideoViewerController extends ChangeNotifier with WidgetsBindingObserver {
     //Show the current Subtitle
     if (_subtitle != null) {
       if (_activeSubtitleData != null) {
-        if (!(position > _activeSubtitleData!.start &&
-            position < _activeSubtitleData!.end)) _findSubtitle();
+        if (!(position > _activeSubtitleData!.start && position < _activeSubtitleData!.end))
+          _findSubtitle();
       } else {
         _findSubtitle();
       }
@@ -415,8 +415,7 @@ class VideoViewerController extends ChangeNotifier with WidgetsBindingObserver {
     if (_ads != null) {
       if (_activeAd != null) {
         final Duration start = _getAdStartTime(_activeAd!);
-        if (!(position > start &&
-            position < start + _activeAd!.durationToEnd)) {
+        if (!(position > start && position < start + _activeAd!.durationToEnd)) {
           _findAd();
         }
       } else {
@@ -441,9 +440,7 @@ class VideoViewerController extends ChangeNotifier with WidgetsBindingObserver {
 
     for (VideoViewerAd ad in _ads!) {
       final Duration start = _getAdStartTime(ad);
-      if (position > start &&
-          position < start + ad.durationToEnd &&
-          _activeAd != ad) {
+      if (position > start && position < start + ad.durationToEnd && _activeAd != ad) {
         _activeAd = ad;
         await _video?.pause();
         _ads?.remove(ad);
@@ -498,9 +495,7 @@ class VideoViewerController extends ChangeNotifier with WidgetsBindingObserver {
     final Duration position = _video!.value.position;
     bool foundOne = false;
     for (SubtitleData subtitle in subtitles!) {
-      if (position > subtitle.start &&
-          position < subtitle.end &&
-          _activeSubtitleData != subtitle) {
+      if (position > subtitle.start && position < subtitle.end && _activeSubtitleData != subtitle) {
         _activeSubtitleData = subtitle;
         foundOne = true;
         notifyListeners();
