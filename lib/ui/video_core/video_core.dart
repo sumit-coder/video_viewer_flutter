@@ -329,11 +329,11 @@ class _VideoViewerCoreState extends State<VideoViewerCore> {
         ),
       ),
       const VideoCoreActiveSubtitleText(),
-      GestureDetector(
-        onTap: () => _query.video(context).showAndHideOverlay(),
-        behavior: HitTestBehavior.opaque,
-        child: Container(height: double.infinity, width: double.infinity),
-      ),
+      // GestureDetector(
+      //   onTap: () => _query.video(context).showAndHideOverlay(),
+      //   behavior: HitTestBehavior.opaque,
+      //   child: Container(height: double.infinity, width: double.infinity),
+      // ),
       // VideoCoreForwardAndRewind(
       //   showRewind: _showAMomentRewindIcons[0],
       //   showForward: _showAMomentRewindIcons[1],
@@ -395,7 +395,7 @@ class _VideoViewerCoreState extends State<VideoViewerCore> {
       //   ),
       // ),
       const VideoCoreThumbnail(),
-      const VideoCoreAdViewer(),
+      // const VideoCoreAdViewer(),
     ]);
   }
 }
