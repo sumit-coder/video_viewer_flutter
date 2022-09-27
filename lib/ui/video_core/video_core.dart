@@ -320,82 +320,84 @@ class _VideoViewerCoreState extends State<VideoViewerCore> {
   }
 
   Widget _player() {
-    return Stack(children: [
-      ValueListenableBuilder(
-        valueListenable: _scale,
-        builder: (_, double scale, __) => Transform.scale(
-          scale: scale,
-          child: const VideoCorePlayer(),
+    return Stack(
+      children: [
+        ValueListenableBuilder(
+          valueListenable: _scale,
+          builder: (_, double scale, __) => Transform.scale(
+            scale: scale,
+            child: const VideoCorePlayer(),
+          ),
         ),
-      ),
-      const VideoCoreActiveSubtitleText(),
-      // GestureDetector(
-      //   onTap: () => _query.video(context).showAndHideOverlay(),
-      //   behavior: HitTestBehavior.opaque,
-      //   child: Container(height: double.infinity, width: double.infinity),
-      // ),
-      // VideoCoreForwardAndRewind(
-      //   showRewind: _showAMomentRewindIcons[0],
-      //   showForward: _showAMomentRewindIcons[1],
-      //   rewindSeconds: _defaultRewindAmount * _rewindDoubleTapCount,
-      //   forwardSeconds: _defaultForwardAmount * _forwardDoubleTapCount,
-      // ),
-      // VideoCoreForwardAndRewindLayout(
-      //   rewind: GestureDetector(onDoubleTap: _rewind),
-      //   forward: GestureDetector(onDoubleTap: _forward),
-      // ),
-      // Builder(builder: (_) {
-      //   final controller = _query.video(context, listen: true);
-      //   final metadata = _query.videoMetadata(context);
-      //   return Stack(children: [
-      //     const VideoCoreBuffering(),
-      //     if (metadata.enableShowReplayIconAtVideoEnd)
-      //       CustomOpacityTransition(
-      //         visible: controller.position >= controller.duration &&
-      //             !controller.isShowingOverlay,
-      //         child: const Center(
-      //           child: PlayAndPause(type: PlayAndPauseType.center),
-      //         ),
-      //       ),
-      //   ]);
-      // }),
-      const VideoCoreOverlay(),
-      // CustomOpacityTransition(
-      //   visible: _showForwardStatus,
-      //   child: ValueListenableBuilder(
-      //     valueListenable: _forwardAndRewindSecondsAmount,
-      //     builder: (_, int seconds, __) => VideoCoreForwardAndRewindBar(
-      //       seconds: seconds,
-      //       position: _initialForwardPosition,
-      //     ),
-      //   ),
-      // ),
-      // Align(
-      //   alignment: Alignment.centerRight,
-      //   child: Builder(builder: (_) {
-      //     final controller = _query.video(context, listen: true);
-      //     final style = _query.videoStyle(context);
-      //     return CustomSwipeTransition(
-      //       visible: controller.isShowingChat,
-      //       axis: Axis.horizontal,
-      //       axisAlignment: 1.0,
-      //       child: GradientBackground(
-      //         child: style.chatStyle.chat,
-      //         begin: Alignment.centerLeft,
-      //         end: Alignment.centerRight,
-      //       ),
-      //     );
-      //   }),
-      // ),
-      // ValueListenableBuilder(
-      //   valueListenable: _currentVolume,
-      //   builder: (_, double value, __) => VideoCoreVolumeBar(
-      //     visible: _showVolumeStatus,
-      //     progress: value / _maxVolume,
-      //   ),
-      // ),
-      const VideoCoreThumbnail(),
-      // const VideoCoreAdViewer(),
-    ]);
+        const VideoCoreActiveSubtitleText(),
+        GestureDetector(
+          onTap: () => _query.video(context).showAndHideOverlay(),
+          behavior: HitTestBehavior.opaque,
+          child: Container(height: double.infinity, width: double.infinity),
+        ),
+        // VideoCoreForwardAndRewind(
+        //   showRewind: _showAMomentRewindIcons[0],
+        //   showForward: _showAMomentRewindIcons[1],
+        //   rewindSeconds: _defaultRewindAmount * _rewindDoubleTapCount,
+        //   forwardSeconds: _defaultForwardAmount * _forwardDoubleTapCount,
+        // ),
+        // VideoCoreForwardAndRewindLayout(
+        //   rewind: GestureDetector(onDoubleTap: _rewind),
+        //   forward: GestureDetector(onDoubleTap: _forward),
+        // ),
+        // Builder(builder: (_) {
+        //   final controller = _query.video(context, listen: true);
+        //   final metadata = _query.videoMetadata(context);
+        //   return Stack(children: [
+        //     const VideoCoreBuffering(),
+        //     if (metadata.enableShowReplayIconAtVideoEnd)
+        //       CustomOpacityTransition(
+        //         visible: controller.position >= controller.duration &&
+        //             !controller.isShowingOverlay,
+        //         child: const Center(
+        //           child: PlayAndPause(type: PlayAndPauseType.center),
+        //         ),
+        //       ),
+        //   ]);
+        // }),
+        const VideoCoreOverlay(),
+        // CustomOpacityTransition(
+        //   visible: _showForwardStatus,
+        //   child: ValueListenableBuilder(
+        //     valueListenable: _forwardAndRewindSecondsAmount,
+        //     builder: (_, int seconds, __) => VideoCoreForwardAndRewindBar(
+        //       seconds: seconds,
+        //       position: _initialForwardPosition,
+        //     ),
+        //   ),
+        // ),
+        // Align(
+        //   alignment: Alignment.centerRight,
+        //   child: Builder(builder: (_) {
+        //     final controller = _query.video(context, listen: true);
+        //     final style = _query.videoStyle(context);
+        //     return CustomSwipeTransition(
+        //       visible: controller.isShowingChat,
+        //       axis: Axis.horizontal,
+        //       axisAlignment: 1.0,
+        //       child: GradientBackground(
+        //         child: style.chatStyle.chat,
+        //         begin: Alignment.centerLeft,
+        //         end: Alignment.centerRight,
+        //       ),
+        //     );
+        //   }),
+        // ),
+        // ValueListenableBuilder(
+        //   valueListenable: _currentVolume,
+        //   builder: (_, double value, __) => VideoCoreVolumeBar(
+        //     visible: _showVolumeStatus,
+        //     progress: value / _maxVolume,
+        //   ),
+        // ),
+        const VideoCoreThumbnail(),
+        // const VideoCoreAdViewer(),
+      ],
+    );
   }
 }
